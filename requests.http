@@ -1,0 +1,34 @@
+### GET Testimonials
+GET http://localhost:8888/api/get-testimonials
+
+
+### Create Testimonial
+POST http://localhost:8888/api/create-testimonial
+Content-Type: application/json
+
+{
+  "text": "Now this is something. Get the ball rolling.",
+  "rating": 5
+}
+
+
+
+### Update Testimonial
+PUT http://localhost:8888/api/update-testimonial
+Content-Type: application/json
+
+{
+  "id": "308333836492603977",
+  "text": "Now this is something. Get the ball rolling. updating the text2.",
+  "rating": 3
+}
+
+
+
+### Delete Testimonial
+DELETE http://localhost:8888/api/delete-testimonial
+Content-Type: application/json
+
+{
+  "id": "308334492182905413"
+}
