@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     if (status !== "loading...") return;
 
-    axios("/api/get-testimonials").then((result) => {
+    axios("/.netlify/functions/get-testimonials").then((result) => {
       if (result.status !== 200) {
         console.log(`Error loading testimonials`);
         console.log(result);

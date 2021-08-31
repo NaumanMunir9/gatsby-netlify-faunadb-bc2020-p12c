@@ -1,9 +1,9 @@
 ### GET Testimonials
-GET http://localhost:8888/api/get-testimonials
+GET http://localhost:8888/.netlify/functions/get-testimonials
 
 
 ### Create Testimonial
-POST http://localhost:8888/api/create-testimonial
+POST http://localhost:8888/.netlify/functions/create-testimonial
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 
 ### Update Testimonial
-PUT http://localhost:8888/api/update-testimonial
+PUT http://localhost:8888/.netlify/functions/update-testimonial
 Content-Type: application/json
 
 {
@@ -26,7 +26,7 @@ Content-Type: application/json
 
 
 ### Delete Testimonial
-DELETE http://localhost:8888/api/delete-testimonial
+DELETE http://localhost:8888/.netlify/functions/delete-testimonial
 Content-Type: application/json
 
 {
