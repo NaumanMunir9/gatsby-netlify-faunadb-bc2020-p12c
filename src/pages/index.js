@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import ReactStars from "react-stars";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 
 import IdentityModal, {
   useIdentityContext,
@@ -16,6 +14,7 @@ import { Button, Modal } from "react-bootstrap";
 
 // components
 import NetlifyIdentity from "../components/NetlifyIdentity";
+import ReactCarousel from "../components/ReactCarousel";
 
 // styles
 import "./index.css";
@@ -102,32 +101,7 @@ export default function HomePage() {
         isLoggedIn={isLoggedIn}
       />
 
-      <Carousel
-        className="main"
-        showArrows={true}
-        infiniteLoop={true}
-        showThumbs={false}
-        showStatus={false}
-        autoPlay={false}
-      >
-        {testimonials &&
-          testimonials.map((testimonial, index) => (
-            <div className="testimonial" key={index}>
-              <img src={getAvatar()} alt="avatar" height="50px" width="50px" />
-              <div className="message">
-                <ReactStars
-                  className="rating"
-                  count={testimonial.rating}
-                  size={24}
-                  color1={"#ffd700"}
-                  edit={false}
-                  half={false}
-                />
-                <p className="text">{testimonial.text}</p>
-              </div>
-            </div>
-          ))}
-      </Carousel>
+      <ReactCarousel testimonials={testimonials} getAvatar={getAvatar} />
 
       <IdentityModal
         showDialog={dialog}
