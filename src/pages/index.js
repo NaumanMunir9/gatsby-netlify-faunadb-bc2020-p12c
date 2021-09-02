@@ -51,11 +51,7 @@ export default function HomePage() {
   const [dialog, setDialog] = useState(false);
 
   const name =
-    (identity &&
-      identity.user &&
-      identity.user.user_metadata &&
-      identity.user.user_metadata.full_name) ||
-    "Untitled";
+    (identity.user && identity.user.user_metadata.full_name) || "Untitled";
 
   const isLoggedIn = identity && identity.isLoggedIn;
 
@@ -97,6 +93,10 @@ export default function HomePage() {
     <>
       {identity && identity.isLoggedIn ? (
         <div className="auth-btn-grp">
+          <Button variant="outline-primary" onClick={handleShow}>
+            Create Testimonial
+          </Button>
+
           <Button
             variant="outline-primary"
             className="login-btn"
