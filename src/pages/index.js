@@ -26,8 +26,8 @@ export default function HomePage() {
 
     axios("/.netlify/functions/get-testimonials").then((result) => {
       if (result.status !== 200) {
-        console.log(`Error loading testimonials`);
-        console.log(result);
+        console.error(`Error loading testimonials`);
+        console.error(result);
         return;
       }
 
