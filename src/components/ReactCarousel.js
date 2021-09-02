@@ -13,7 +13,7 @@ export default function ReactCarousel({ testimonials, getAvatar }) {
         infiniteLoop={true}
         showThumbs={false}
         showStatus={false}
-        autoPlay={false}
+        autoPlay={true}
       >
         {testimonials &&
           testimonials.map((testimonial, index) => (

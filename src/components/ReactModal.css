@@ -1,3 +1,9 @@
 .create-testimonial {
   color: black;
 }
+
+.create-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

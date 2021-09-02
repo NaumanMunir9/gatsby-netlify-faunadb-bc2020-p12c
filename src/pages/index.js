@@ -1,20 +1,17 @@
 // libraries
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-import ReactStars from "react-stars";
-
 import IdentityModal, {
   useIdentityContext,
 } from "react-netlify-identity-widget";
-import "react-netlify-identity-widget/styles.css";
 
+import "react-netlify-identity-widget/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal } from "react-bootstrap";
 
 // components
 import NetlifyIdentity from "../components/NetlifyIdentity";
 import ReactCarousel from "../components/ReactCarousel";
+import ReactModal from "../components/ReactModal";
 
 // styles
 import "./index.css";
@@ -108,47 +105,14 @@ export default function HomePage() {
         onCloseDialog={() => setDialog(false)}
       />
 
-      <Modal
+      <ReactModal
+        handleClose={handleClose}
+        handleCreate={handleCreate}
+        ratingChanged={ratingChanged}
+        textChanged={textChanged}
+        rating={rating}
         show={show}
-        onHide={handleClose}
-        animation={true}
-        className="create-testimonial"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Create a Testimonial</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <div className="create-form">
-            <textarea
-              onChange={(evt) => textChanged(evt)}
-              placeholder="Enter your message here"
-            />
-
-            <br />
-
-            <span>Rating:</span>
-            <ReactStars
-              count={5}
-              value={rating}
-              onChange={ratingChanged}
-              size={24}
-              color2={"ffd700"}
-              half={false}
-            />
-          </div>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            cancel
-          </Button>
-
-          <Button variant="primary" onClick={(evt) => handleCreate(evt)}>
-            Create
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      />
     </>
   );
 }
