@@ -14,6 +14,9 @@ import "react-netlify-identity-widget/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal } from "react-bootstrap";
 
+// components
+import NetlifyIdentity from "../components/NetlifyIdentity";
+
 // styles
 import "./index.css";
 
@@ -91,31 +94,13 @@ export default function HomePage() {
 
   return (
     <>
-      {identity && identity.isLoggedIn ? (
-        <div className="auth-btn-grp">
-          <Button variant="outline-primary" onClick={handleShow}>
-            Create Testimonial
-          </Button>
-
-          <Button
-            variant="outline-primary"
-            className="login-btn"
-            onClick={() => setDialog(true)}
-          >
-            {isLoggedIn ? `Hello ${name}, Log out here!` : "Log In"}
-          </Button>
-        </div>
-      ) : (
-        <div className="auth-btn-grp">
-          <Button
-            variant="outline-primary"
-            className="login-btn"
-            onClick={() => setDialog(true)}
-          >
-            {isLoggedIn ? `Hello ${name}, Log out here!` : "Log In"}
-          </Button>
-        </div>
-      )}
+      <NetlifyIdentity
+        setDialog={setDialog}
+        handleShow={handleShow}
+        name={name}
+        identity={identity}
+        isLoggedIn={isLoggedIn}
+      />
 
       <Carousel
         className="main"
